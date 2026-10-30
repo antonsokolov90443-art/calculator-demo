@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор барбершопа</title>
+    <style>
+        body { background-color: #121212; color: #ffffff; font-family: 'Arial', sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .calc-box { background-color: #1e1e1e; padding: 30px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); width: 300px; border: 1px solid #333; }
+        h2 { text-align: center; color: #d4af37; margin-bottom: 20px; }
+        .service { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; font-size: 16px; }
+        input[type="checkbox"] { width: 20px; height: 20px; accent-color: #d4af37; cursor: pointer; }
+        button { width: 100%; padding: 15px; background-color: #d4af37; color: #000; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 10px; transition: 0.3s; }
+        button:hover { background-color: #ffd700; }
+        .result { text-align: center; margin-top: 20px; font-size: 24px; font-weight: bold; color: #d4af37; }
+    </style>
+</head>
+<body>
+    <div class="calc-box">
+        <h2>BARBERSHOP</h2>
+        <div class="service">
+            <span>Стрижка (1500 ₽)</span>
+            <input type="checkbox" id="haircut" value="1500">
+        </div>
+        <div class="service">
+            <span>Бритье (1000 ₽)</span>
+            <input type="checkbox" id="shave" value="1000">
+        </div>
+        <div class="service">
+            <span>Уход за бородой (500 ₽)</span>
+            <input type="checkbox" id="beard" value="500">
+        </div>
+        <button onclick="calculate()">Рассчитать</button>
+        <div class="result" id="total">Итого: 0 ₽</div>
+    </div>
+    <script>
+        function calculate() {
+            let total = 0;
+            if (document.getElementById('haircut').checked) total += 1500;
+            if (document.getElementById('shave').checked) total += 1000;
+            if (document.getElementById('beard').checked) total += 500;
+            document.getElementById('total').innerText = 'Итого: ' + total + ' ₽';
+        }
+    </script>
+</body>
+</html>
